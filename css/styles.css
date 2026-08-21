@@ -186,7 +186,7 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   font-family: inherit;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .sub-card img {
@@ -198,10 +198,6 @@ nav {
 }
 
 /* Sub card contents */
-.sub-card-content {
-  width: 60%;
-}
-
 .sub-card-content h2 {
   font-size: 1.5vw;
   padding-bottom: 2px;
@@ -219,6 +215,10 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 6px;
   font-size: 0.75vw;
+}
+
+.sub-card-content {
+  padding-right: 0;
 }
 
 .sub-card-content p {
