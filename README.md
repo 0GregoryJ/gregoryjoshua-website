@@ -1,7 +1,7 @@
 
 # gregoryjoshua.com - Personal Website
 
-A personal website I built to host my portfolio, record some of my favorite hobbies and interests, and provide means of contact for anyone who would like to chat!
+A personal website I built to host my portfolio, record some of my favorite hobbies and interests, and provide means of contact for anyone who would like to chat.
 
 
 ## Table of Contents
