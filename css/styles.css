@@ -9,7 +9,7 @@ html,
 body {
   height: 100%;
   display: flex;
-  overflow-y: hidden;
+  overflow: hidden;
   align-items: center;
 }
 
@@ -155,9 +155,99 @@ nav {
   font-family: inherit;
 }
 
+.main-card * {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+.main-card h3 {
+  padding-top: 2vw;
+  font-size: 2vw;
+  text-transform: uppercase;
+}
+
+.main-card p {
+  font-size: 1vw;
+}
+
+/* Main card sub cards */
+.sub-card {
+  width: 92%;
+  height: 33%;
+  margin-left: 1.2rem;
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.075);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-family: inherit;
+  overflow-y: scroll;
+}
+
+.sub-card img {
+  width: 40%;
+  height: 90%;
+  padding: 0;
+  margin-top: 0;
+  border-radius: 1rem;
+}
+
+/* Sub card contents */
+.sub-card-content {
+  width: 60%;
+}
+
+.sub-card-content h2 {
+  font-size: 1.5vw;
+  padding-bottom: 2px;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.tools span {
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  font-size: 0.75vw;
+}
+
+.sub-card-content p {
+  line-height: 1.5;
+  font-size: 0.75vw;
+  margin-bottom: 8px;
+}
+
+.sub-card-content a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75vw;
+}
+
 /* Phone CSS */
 @media (max-width: 850px) {
   nav, .title-card, .main-card {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .tools {
+    display: none;
+  }
+}
+
+@media (max-height: 750px) {
+  .tools {
     display: none;
   }
 }
