@@ -394,6 +394,17 @@ form button:hover {
   form textarea {
     font-size: 3vw;
   }
+
+  .home-page,
+  .portfolio-page,
+  .hobbies-page,
+  .contact-page {
+    min-height: 100dvh;
+    background-attachment: fixed;
+  }
+  html {
+    background-color: #1a1a1a; /* pick a color close to your hero image edges */
+  }
 }
 
 @media (max-width: 1200px) {
