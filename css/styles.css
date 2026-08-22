@@ -242,6 +242,10 @@ nav {
   font-size: 0.75vw;
 }
 
+.sub-card-content a:hover {
+  text-decoration: underline;
+}
+
 /* Contact form */
 form {
   display: flex;
@@ -388,6 +392,20 @@ form button:hover {
   .title-card h1 {
     font-size: 12vw !important;
     line-height: 13vw !important;
+  }
+
+  .sub-card-content h2 {
+    font-size: 2.25vw;
+  }
+
+  .sub-card-content p {
+    font-size: 1vw;
+  }
+
+  .sub-card-content a {
+    align-items: center;
+    justify-content: center;
+    display: flex;
   }
 
   form input,
