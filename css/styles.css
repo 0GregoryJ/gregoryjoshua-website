@@ -42,6 +42,11 @@ nav {
   text-transform: uppercase;
 }
 
+.nav-toggle,
+.hamburger {
+  display: none;
+}
+
 .logo {
   justify-self: start;
   text-decoration: none;
@@ -122,6 +127,7 @@ nav {
   font-family: inherit;
   margin-left: 0.85rem;
   margin-top: 0.85rem;
+  margin-bottom: 1vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -293,8 +299,100 @@ form button:hover {
 
 /* Phone CSS */
 @media (max-width: 850px) {
-  nav, .title-card, .main-card {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+  }
+  .hamburger {
+    display: block;
+    font-size: 1.75rem;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .nav-toggle {
     display: none;
+  }
+  nav .links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    padding-top: 5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+  }
+
+  nav .icons {
+    display: none;
+  }
+
+  .nav-toggle:checked ~ .links {
+    display: flex;
+  }
+
+  .nav-toggle:checked ~ .icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    background: transparent;
+    backdrop-filter: none;
+    z-index: 1001;
+    padding-top: 0;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(20vh + 10rem);
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  /* Restyle cards for mobile instead of hiding them */
+  html, body {
+    flex-direction: column;
+    overflow-y: auto;
+    align-items: stretch;
+  }
+  .title-card,
+  .main-card {
+    display: block;
+    width: 90vw !important;
+    height: auto !important;
+    margin: 5rem auto 1.5rem;
+    text-align: center;
+  }
+
+  .main-card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0
+  }
+
+  body:has(.nav-toggle:checked) .title-card,
+  body:has(.nav-toggle:checked) .main-card {
+    display: none;
+  }
+
+  .title-card p {
+    font-size: 2vw !important;
+  }
+
+  .title-card h1 {
+    font-size: 12vw !important;
+    line-height: 13vw !important;
+  }
+
+  form input,
+  form textarea {
+    font-size: 3vw;
   }
 }
 

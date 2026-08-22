@@ -10,37 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400..700&family=Unica+One&display=swap" rel="stylesheet">
 </head>
 <body class="contact-page">
-  <nav>
-    <a class="logo" href="index.html">Gregory Joshua</a>
-    <ul class="links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="hobbies.html">Hobbies</a></li>
-      <li><a href="contact.html"><strong>Contact</strong></a></li>
-    </ul>
-    <div class="icons">
-      <a href="https://linkedin.com/in/gregjoshua" target="_blank" rel="noopener noreferrer"><img src="assets/icons/linkedin.png" alt="LinkedIn"></a>
-      <a href="https://github.com/0GregoryJ" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github.png" alt="GitHub"></a>
-      <a href="#"><img src="assets/icons/email.png" alt="Email"></a>
-      <a href="#"><img src="assets/icons/phone.png" alt="Phone"></a>
-    </div>
-  </nav>
+    <nav>
+        <a class="logo" href="index.html">Gregory Joshua</a>
 
-  <div class="title-card" style="width: 25vw; height: 65vh;">
-    <h3 style="font-size: 1.5vw; padding-left: 0.95rem;">Hi, I'm</h3>
-    <h1 style="font-size: 4.5vw; line-height: 4.5vw; padding-left: 0.85rem;">GREG</h1>
-    <p style="font-size: 1vw; padding-left: 0.85rem;">If we have similar interests, something caught your eye, or you'd just like to chat, please send a message!</p>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">☰</label>
 
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="contact.html"><strong>Contact</strong></a></li>
+        </ul>
+        <div class="icons">
+            <a href="https://linkedin.com/in/gregjoshua" target="_blank" rel="noopener noreferrer"><img src="assets/icons/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://github.com/0GregoryJ" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github.png" alt="GitHub"></a>
+            <a href="#"><img src="assets/icons/email.png" alt="Email"></a>
+            <a href="#"><img src="assets/icons/phone.png" alt="Phone"></a>
+        </div>
+    </nav>
+
+    <div class="title-card" style="width: 25vw; height: 65vh;">
+        <h3 style="font-size: 1.5vw; padding-left: 0.95rem;">Hi, I'm</h3>
+        <h1 style="font-size: 4.5vw; line-height: 4.5vw; padding-left: 0.85rem;">GREG</h1>
+        <p style="font-size: 1vw; padding-left: 0.85rem; margin-bottom: 1vh;">If we have similar interests, something caught your eye, or you'd just like to chat, please send a message!</p>
     </div>
     <div class="main-card" style="height: 65vh; margin-right: 5vw;">
         <form name="contact" method="POST" data-netlify="true">
             <input type="text" name="name" placeholder="Name" required>
-        
             <input type="email" name="email" placeholder="Email" required>
-        
             <textarea name="message" placeholder="Message" required></textarea>
-        
-            <button type="submit">Send</button>
+            <button type="submit" style="margin-bottom: 1vh;">Send</button>
         </form>
     </div>
 </body>
