@@ -1,117 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-76E13KFPBY"></script>
-    <script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Gregory Joshua</title>
+  <meta name="description" content="Projects by Gregory Joshua: data pipelines, dashboards, and analytics, including a live greenhouse IoT streaming pipeline.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400..700&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-76E13KFPBY"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-76E13KFPBY');
-    </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Gregory Joshua</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400..700&family=Unica+One&display=swap" rel="stylesheet">
+  </script>
 </head>
 <body class="portfolio-page">
-    <nav>
-        <a class="logo" href="index.html">Gregory Joshua</a>
+  <nav aria-label="Main">
+    <a class="logo" href="index.html">Gregory Joshua</a>
 
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">☰</label>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+    <label for="nav-toggle" class="hamburger" aria-hidden="true"></label>
 
-        <ul class="links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html"><strong>Portfolio</strong></a></li>
-            <li><a href="hobbies.html">Hobbies</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="icons">
-            <a href="https://linkedin.com/in/gregjoshua" target="_blank" rel="noopener noreferrer"><img src="assets/icons/linkedin.png" alt="LinkedIn"></a>
-            <a href="https://github.com/0GregoryJ" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github.png" alt="GitHub"></a>
-            <a href="#"><img src="assets/icons/email.png" alt="Email"></a>
-            <a href="#"><img src="assets/icons/phone.png" alt="Phone"></a>
-        </div>
-    </nav>
-
-    <div class="title-card" style="width: 25vw; height: 80vh;">
-        <h3 style="font-size: 1.5vw; padding-left: 0.95rem;">Hi, I'm</h3>
-        <h1 style="font-size: 4.5vw; line-height: 4.5vw; padding-left: 0.85rem;">GREGORY</br>JOSHUA</h1>
-        <p style="font-size: 1vw; padding-left: 0.85rem;">Data & BI Analyst | Data & Analytics Engineer</p>
-        <p style="font-size: 1vw; padding-left: 0.85rem;">M.S. Business Analytics | B.S. Mathematics</p>
-        <hr style="border: none; border-top: 2px solid #fff; width: 92%; margin-left: 4%; margin-top: 2.5%">
-        <p style="font-size: 1vw; padding-left: 0.85rem;">I'm interested in building reliable, scalable data systems and analytics that turn complex, messy data into clear insights and better decisions. From engineering that produces governed metrics and trustworthy data products, to analytics that uncovers patterns, tests assumptions, and quantifies the drivers behind business outcomes, I enjoy working across the full data lifecycle.</p>
-        <button><a href="assets/resume/Gregory-Joshua-Resume.pdf">View my Resume</a></button>
+    <div class="nav-menu">
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+        <li><a href="hobbies.html">Hobbies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="icons">
+        <a href="https://linkedin.com/in/gregjoshua" target="_blank" rel="noopener noreferrer"><img src="assets/icons/linkedin.png" alt="LinkedIn" width="26" height="26"></a>
+        <a href="https://github.com/0GregoryJ" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github.png" alt="GitHub" width="26" height="26"></a>
+        <a href="mailto:gregjoshua11@gmail.com" title="gregjoshua11@gmail.com"><img src="assets/icons/email.png" alt="Email" width="26" height="26"></a>
+        <a href="tel:650-924-8937" title="(650) 924-8937"><img src="assets/icons/phone.png" alt="Phone" width="26" height="26"></a>
+      </div>
     </div>
-    <div class="main-card" style="height: 80vh; margin-right: 5vw;">
-        <h3>PROJECTS</h3>
-        <p>Scroll through a selection of projects that highlight my work.</p>
-        <div class="sub-card">
-            <img src="images/RRthumbnail.png" />
-            <div class="sub-card-content">
-                <h2>Retail Rocket ELT Pipeline</h2>
-                <div class="tools">
-                    <span>PySpark</span>
-                    <span>PostgreSQL</span>
-                    <span>dbt</span>
-                    <span>Docker</span>
-                </div>
-                <p>
-                    Built an end-to-end ELT pipeline for large-scale retail data using
-                    PySpark and PostgreSQL, with dbt modeling and testing, a Lightdash BI layer, and Docker containerization.
-                </p>
-                <a href="https://github.com/0GregoryJ/retail-rocket-elt-pipeline"
-                    target="_blank" style="display: flex; align-items: center;">
-                    <img src="assets/icons/github.png" alt="GitHub" style="width: 1.25vw; padding: 0;">&nbsp; View on GitHub →
-                </a>
-            </div>
-        </div>
-        <div class="sub-card">
-            <img src="images/BWdashboard.png" />
-            <div class="sub-card-content">
-                <h2>Bay Wheels Analysis</h2>
-                <div class="tools">
-                    <span>Python</span>
-                    <span>Parquet</span>
-                    <span>Tableau</span>
-                    <span>Data Analysis</span>
-                </div>
-                <p>
-                    Ingested, cleaned, and analyzed 10M+ Bay Wheels bike share trips. Built an interactive Tableau dashboard and wrote an executive summary to surface KPIs, visualize demand patterns, and make station rebalancing recommendations.
-                </p>
-                <a href="https://github.com/0GregoryJ/Bay-Wheels-Operations-Analysis"
-                    target="_blank" style="display: flex; align-items: center;">
-                    <img src="assets/icons/github.png" alt="GitHub" style="width: 1.25vw; padding: 0;">&nbsp; View on GitHub →
-                </a>
-            </div>
-        </div>
-        <div class="sub-card">
-            <img src="images/GJthumbnail.png" />
-            <div class="sub-card-content">
-                <h2>gregoryjoshua.com</h2>
-                <div class="tools">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>Netlify</span>
-                </div>
-                <p>
-                    Wrote responsive HTML and CSS to create a personal website that communicates information both via content and style.
-                </p>
-                <a href="https://github.com/0GregoryJ/gregoryjoshua-website"
-                    target="_blank" style="display: flex; align-items: center;">
-                    <img src="assets/icons/github.png" alt="GitHub" style="width: 1.25vw; padding: 0;">&nbsp; View on GitHub →
-                </a>
-            </div>
-        </div>
-        <br>
-        <p style="text-align: center;"><i>More projects coming soon...</i></p>
-        <br>
-    </div>
+  </nav>
+
+  <main>
+    <section class="title-card">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Gregory<br>Joshua</h1>
+      <p class="roles"><span>Data &amp; BI Analyst |</span> <span>Data &amp; Analytics Engineer</span></p>
+      <p class="roles"><span>M.S. Business Analytics |</span> <span>B.S. Mathematics</span></p>
+      <a class="button" href="assets/resume/Gregory-Joshua-Resume.pdf" target="_blank" rel="noopener noreferrer">View my Resume</a>
+      <hr>
+      <p>I'm interested in building reliable, scalable data systems and analytics that turn complex, messy data into clear insights and better decisions. From engineering that produces governed metrics and trustworthy data products, to analytics that uncovers patterns, tests assumptions, and quantifies the drivers behind business outcomes, I enjoy working across the full data lifecycle.</p>
+    </section>
+
+    <section class="main-card">
+      <h2>Projects</h2>
+      <p>Scroll through a selection of projects that highlight my work.</p>
+
+      <div class="projects">
+        <article class="project">
+          <img src="images/GHthumbnail.png" alt="Diagram of the Greenhouse IoT pipeline: Raspberry Pi to Kafka to Redis and FastAPI to a React dashboard" width="1600" height="800">
+          <div>
+            <h3>Greenhouse IoT Streaming Pipeline <span class="status">In progress</span></h3>
+            <ul class="tools">
+              <li>Python</li>
+              <li>Kafka</li>
+              <li>Redis</li>
+              <li>FastAPI</li>
+              <li>React</li>
+              <li>AWS</li>
+              <li>Docker</li>
+            </ul>
+            <p>
+              Built an end-to-end streaming pipeline for greenhouse sensor data. MQTT events are buffered in a durable SQLite outbox on a Raspberry Pi, streamed through Kafka on AWS into Redis, and served by FastAPI to a live React dashboard. It runs on simulated data today, with physical sensors and Snowflake/dbt analytics planned.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/0GregoryJ/greenhouse-iot-streaming-pipeline" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/github.png" alt="" width="18" height="18">View on GitHub →
+              </a>
+              <a href="https://greenhouse.gregoryjoshua.com" target="_blank" rel="noopener noreferrer">Live dashboard →</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="images/RRthumbnail.png" alt="Retail Rocket ELT pipeline and data warehouse, built with PySpark, PostgreSQL, dbt, and Lightdash" width="1926" height="956" loading="lazy">
+          <div>
+            <h3>Retail Rocket ELT Pipeline</h3>
+            <ul class="tools">
+              <li>PySpark</li>
+              <li>PostgreSQL</li>
+              <li>dbt</li>
+              <li>Docker</li>
+            </ul>
+            <p>
+              Built an end-to-end ELT pipeline for large-scale retail data using PySpark and PostgreSQL, with dbt modeling and testing, a Lightdash BI layer, and Docker containerization.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/0GregoryJ/retail-rocket-elt-pipeline" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/github.png" alt="" width="18" height="18">View on GitHub →
+              </a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="images/BWdashboard.png" alt="Tableau dashboard of Bay Wheels trips showing station rebalancing and member versus casual demand" width="2500" height="1554" loading="lazy">
+          <div>
+            <h3>Bay Wheels Analysis</h3>
+            <ul class="tools">
+              <li>Python</li>
+              <li>Parquet</li>
+              <li>Tableau</li>
+              <li>Data Analysis</li>
+            </ul>
+            <p>
+              Ingested, cleaned, and analyzed 10M+ Bay Wheels bike share trips. Built an interactive Tableau dashboard and wrote an executive summary to surface KPIs, visualize demand patterns, and make station rebalancing recommendations.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/0GregoryJ/Bay-Wheels-Operations-Analysis" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/github.png" alt="" width="18" height="18">View on GitHub →
+              </a>
+            </p>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="images/GJthumbnail.jpg" alt="Screenshot of the gregoryjoshua.com home page" width="1440" height="800" loading="lazy">
+          <div>
+            <h3>gregoryjoshua.com</h3>
+            <ul class="tools">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>Netlify</li>
+            </ul>
+            <p>
+              Wrote responsive HTML and CSS to create a personal website that communicates information both via content and style.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/0GregoryJ/gregoryjoshua-website" target="_blank" rel="noopener noreferrer">
+                <img src="assets/icons/github.png" alt="" width="18" height="18">View on GitHub →
+              </a>
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <p class="more-soon">More projects coming soon...</p>
+    </section>
+  </main>
 </body>
 </html>

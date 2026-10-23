@@ -1,59 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-76E13KFPBY"></script>
-    <script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobbies — Gregory Joshua</title>
+  <meta name="description" content="Pickleball, cooking, and the outdoors: what Gregory Joshua does outside of work.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400..700&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-76E13KFPBY"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-76E13KFPBY');
-    </script>  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hobbies — Gregory Joshua</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400..700&family=Unica+One&display=swap" rel="stylesheet">
+  </script>
 </head>
 <body class="hobbies-page">
-    <nav>
-        <a class="logo" href="index.html">Gregory Joshua</a>
+  <nav aria-label="Main">
+    <a class="logo" href="index.html">Gregory Joshua</a>
 
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">☰</label>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+    <label for="nav-toggle" class="hamburger" aria-hidden="true"></label>
 
-        <ul class="links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="hobbies.html"><strong>Hobbies</strong></a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="icons">
-            <a href="https://linkedin.com/in/gregjoshua" target="_blank" rel="noopener noreferrer"><img src="assets/icons/linkedin.png" alt="LinkedIn"></a>
-            <a href="https://github.com/0GregoryJ" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github.png" alt="GitHub"></a>
-            <a href="#"><img src="assets/icons/email.png" alt="Email"></a>
-            <a href="#"><img src="assets/icons/phone.png" alt="Phone"></a>
-        </div>
-    </nav>
-
-    <div class="title-card" style="width: 25vw; height: 80vh;">
-        <h3 style="font-size: 1.5vw; padding-left: 0.95rem;">Hi, I'm</h3>
-        <h1 style="font-size: 4.5vw; line-height: 4.5vw; padding-left: 0.85rem;">GREG</h1>
-        <p style="font-size: 1vw; padding-left: 0.85rem; margin-bottom: 1vh;">Firstly, I love all sports and outdoor activities. I love hiking, running, and going to the beach, and as for sports, my favorites are pickleball, tennis, basketball, and ping-pong. I enjoy both cooking and dining, and particularly enjoy fresh Californian cuisine. <br><br> Check out some pictures and information about my adventures in my favorite activities.</p>
+    <div class="nav-menu">
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="hobbies.html" aria-current="page">Hobbies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="icons">
+        <a href="https://linkedin.com/in/gregjoshua" target="_blank" rel="noopener noreferrer"><img src="assets/icons/linkedin.png" alt="LinkedIn" width="26" height="26"></a>
+        <a href="https://github.com/0GregoryJ" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github.png" alt="GitHub" width="26" height="26"></a>
+        <a href="mailto:gregjoshua11@gmail.com" title="gregjoshua11@gmail.com"><img src="assets/icons/email.png" alt="Email" width="26" height="26"></a>
+        <a href="tel:650-924-8937" title="(650) 924-8937"><img src="assets/icons/phone.png" alt="Phone" width="26" height="26"></a>
+      </div>
     </div>
-    <div class="main-card" style="height: 80vh; margin-right: 5vw;">
-        <h3>HOBBIES</h3>
-        <h4>PICKLEBALL</h4>
-        <img src="images/pickleball1.JPEG" width="50%"/><img src="images/pickleball2.JPEG" width="50%"/>
-        <img src="images/pickleball3.JPEG" width="50%"/>
+  </nav>
 
-        <h4>COOKING</h4>
-        <img src="images/food1.png" width="45%"/><img src="images/food2.png" width="55%"/>
-        <img src="images/food3.png" width="49%"/><img src="images/food4.png" width="51%"/>
-        <img src="images/food5.png" width="50%"/>
-    </div>
+  <main>
+    <section class="title-card">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Greg</h1>
+      <p>Firstly, I love all sports and outdoor activities. I love hiking, running, and going to the beach, and as for sports, my favorites are pickleball, tennis, basketball, and ping-pong. I enjoy both cooking and dining, and particularly enjoy fresh Californian cuisine.</p>
+      <p>Check out some pictures and information about my adventures in my favorite activities.</p>
+    </section>
+
+    <section class="main-card">
+      <h2>Hobbies</h2>
+
+      <h3 class="section-title">Pickleball</h3>
+      <div class="gallery">
+        <img class="tall" src="images/pickleball1.jpg" alt="Reaching low for a shot at the net during a pickleball game" width="1365" height="2048" loading="lazy">
+        <img class="tall" src="images/pickleball2.jpg" alt="Mid-swing with a paddle during a pickleball game" width="1365" height="2048" loading="lazy">
+        <img class="wide" src="images/pickleball3.jpg" alt="Two players in a pickleball rally with the ball in mid-air" width="1600" height="1066" loading="lazy">
+      </div>
+
+      <h3 class="section-title">Cooking</h3>
+      <div class="gallery">
+        <img class="square" src="images/food1.jpg" alt="Bowl with browned chicken, tzatziki, kale, cucumber, and a blood orange salad" width="1200" height="1083" loading="lazy">
+        <img class="square" src="images/food3.jpg" alt="Bowl of roasted chicken and vegetables with tzatziki, topped with fresh dill" width="1200" height="1160" loading="lazy">
+        <img class="wide" src="images/food2.jpg" alt="Everything bagel sandwich with egg and greens, next to a kale salad" width="1200" height="852" loading="lazy">
+        <img class="square" src="images/food4.jpg" alt="Seared salmon on microgreens with sautéed zucchini and a lemon wedge" width="1200" height="1101" loading="lazy">
+        <img class="square" src="images/food5.jpg" alt="Bowl topped with feta, pumpkin seeds, cucumber, microgreens, and blood orange" width="1200" height="1126" loading="lazy">
+      </div>
+    </section>
+  </main>
 </body>
 </html>

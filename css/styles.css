@@ -1,438 +1,610 @@
-/* Set up */
-* {
+/* ==========================================================================
+   gregoryjoshua.com
+
+   1. Setup          5. Project cards
+   2. Navigation     6. Hobbies gallery
+   3. Cards          7. Contact form
+   4. Title card     8. Phones and small tablets
+   ========================================================================== */
+
+
+/* 1. Setup
+   -------------------------------------------------------------------------- */
+:root {
+  /* Dark, blue-tinted glass keeps white text readable even over the bright sky */
+  --glass: rgba(10, 22, 42, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --tile: rgba(255, 255, 255, 0.1);
+  --tile-border: rgba(255, 255, 255, 0.18);
+  --radius: 20px;
+  --nav-height: 4rem;
+}
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
+html {
+  background-color: #1d3557; /* only visible for a moment while the photo loads */
+}
+
 body {
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh; /* "dynamic" height: matches what's visible on iPhone Safari */
   display: flex;
-  overflow: hidden;
-  align-items: center;
+  flex-direction: column;
+  padding-top: var(--nav-height); /* room for the fixed nav */
+  font-family: "Monda", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff;
+  --bg: url("../images/hero-blur.jpg");
 }
 
 .home-page {
-  min-height: 100vh;
-  font-family: "Monda", sans-serif;
-  color: #fff;
-  background: url("../images/hero.png") center / cover no-repeat;
+  --bg: url("../images/hero.jpg");
 }
 
-.portfolio-page, .hobbies-page, .contact-page {
-  min-height: 100vh;
-  font-family: "Monda", sans-serif;
-  color: #fff;
-  background: url("../images/hero-blur.png") center / cover no-repeat;
+/* Background photo, pinned to the screen. It never scrolls, never leaves a gap,
+   and (unlike background-attachment: fixed) it also works on iPhones. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg) center / cover no-repeat;
 }
 
-/* Navigation bar */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* Visible keyboard focus (never remove outlines without replacing them) */
+:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+
+/* 2. Navigation
+   -------------------------------------------------------------------------- */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--nav-height);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 1.25rem 2rem;
-  background: transparent;
-  font-family: inherit;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.nav-toggle,
-.hamburger {
-  display: none;
+/* Frosted strip behind the nav so the text is readable over any part of the photo.
+   It's a pseudo-element on purpose: a blur on <nav> itself would break the
+   full-screen mobile menu. */
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(10, 22, 42, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--tile-border);
 }
 
 .logo {
   justify-self: start;
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+}
+
+/* On desktop the wrapper disappears and links/icons sit directly in the nav grid */
+.nav-menu {
+  display: contents;
 }
 
 .links {
   display: flex;
-  gap: 2rem;
-  list-style: none;
+  gap: clamp(1rem, 2.5vw, 2rem);
 }
 
 .links a {
-  text-decoration: none;
+  display: inline-block;
+  padding: 0.4rem 0.15rem;
   color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.links a:hover,
+.links a[aria-current="page"] {
+  border-bottom-color: #fff;
+}
+
+.links a[aria-current="page"] {
+  font-weight: 700;
 }
 
 .icons {
   justify-self: end;
   display: flex;
-  gap: 0.85rem;
   align-items: center;
+  gap: 0.25rem;
+}
+
+.icons a {
+  display: flex;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.icons a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
 }
 
 .icons img {
-  display: block;
   width: 26px;
   height: 26px;
 }
 
-/* Title card */
+/* Mobile menu controls (shown in section 8). The checkbox is invisible but
+   still reachable with the keyboard. */
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.hamburger {
+  display: none;
+}
+
+
+/* 3. Cards
+   -------------------------------------------------------------------------- */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* both cards are always the same height */
+  gap: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  max-width: 100rem;
+  max-height: calc(100vh - var(--nav-height) - 3rem);
+  max-height: calc(100dvh - var(--nav-height) - 3rem);
+  margin: auto; /* centers the cards in the space below the nav */
+  padding-inline: clamp(1rem, 5vw, 5rem);
+}
+
+/* Home page: just the one card, on the left so the photo shows on the right */
+.home-page main {
+  justify-content: flex-start;
+  padding-left: clamp(1rem, 10vw, 12rem);
+}
+
+.title-card,
+.main-card {
+  min-height: 0;
+  padding: clamp(1.25rem, 2.2vw, 2rem);
+  overflow-y: auto; /* long content scrolls inside the card */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 .title-card {
-  width: 20vw;
-  height: 65vh;
-  margin-left: 10vw;
-
-  background: rgba(255, 255, 255, 0.075);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  font-family: inherit;
+  flex: 0 0 clamp(17rem, 27vw, 25rem);
 }
 
-.title-card * {
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
+.main-card {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 60rem;
+  container-type: inline-size; /* lets project cards react to the card's width (section 5) */
 }
 
-.title-card h3 {
-  padding-top: 1.75vh;
+.main-card h2 {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.main-card h2 + p {
+  margin-top: 0.5rem;
+}
+
+/* Pill button, used for links ("Contact Me") and the form's Send button */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  font: inherit;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  color: #0a162a;
+  background-color: #fff;
+}
+
+
+/* 4. Title card
+   -------------------------------------------------------------------------- */
+.title-card > * + * {
+  margin-top: 0.75rem;
+}
+
+.eyebrow {
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .title-card h1 {
-  font-size: 6vw;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0.5rem;
-  text-transform: uppercase;
-  line-height: 6vw;
-}
-
-.title-card p {
-  font-size: 1.4vw;
-  padding-top: 0.6rem;
-}
-
-.title-card button {
-  background-color: transparent;
-  border: #fff 1px solid;
-  border-radius: 2vw;
-  padding-top: 1vw;
-  padding-bottom: 1vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  font-family: inherit;
-  margin-left: 0.85rem;
-  margin-top: 0.85rem;
-  margin-bottom: 1vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.title-card button a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.title-card button:hover {
-  background-color: #fff;
-}
-
-.title-card button:hover a {
-  color: #000;
-}
-
-/* Main card */
-.main-card {
-  width: 50vw;
-  height: 65vh;
-  margin-left: 5vw;  
-
-  background: rgba(255, 255, 255, 0.075);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  font-family: inherit;
-  overflow-y: scroll;
-}
-
-.main-card * {
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
-}
-
-.main-card h3 {
-  padding-top: 1.5vh;
-  font-size: 2vw;
+  font-size: clamp(2.75rem, 4.5vw, 4rem);
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
-.main-card p {
-  font-size: 1vw;
+.home-page .title-card h1 {
+  font-size: clamp(3.5rem, 7vw, 6rem);
 }
 
-.main-card img {
-  border-radius: 1rem;
-}
-
-/* Main card sub cards */
-.sub-card {
-  width: 92%;
-  height: 33%;
-  margin-left: 1.2rem;
-  margin-top: 0.85rem;
-  display: flex;
-  align-items: center;
-
-  background: rgba(255, 255, 255, 0.075);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  font-family: inherit;
-  overflow-y: hidden;
-}
-
-.sub-card img {
-  width: 40%;
-  height: 90%;
-  padding: 0;
+.title-card .eyebrow + h1 {
   margin-top: 0;
-  border-radius: 1rem;
 }
 
-/* Sub card contents */
-.sub-card-content h2 {
-  font-size: 1.5vw;
-  padding-bottom: 2px;
+.title-card .roles {
+  margin-top: 0.25rem;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.title-card .roles + .roles {
+  margin-top: 0;
+}
+
+/* Keep each phrase together, so lines only ever break after the "|" */
+.roles span {
+  white-space: nowrap;
+}
+
+.title-card hr {
+  margin-block: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.title-card .button {
+  margin-top: 1.25rem;
+}
+
+
+/* 5. Project cards (portfolio page)
+   -------------------------------------------------------------------------- */
+.projects {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); /* image | text */
+  align-items: start;
+  gap: 1.25rem;
+  padding: 1rem;
+  background: var(--tile);
+  border: 1px solid var(--tile-border);
+  border-radius: 16px;
+}
+
+.project > img {
+  width: 100%;
+  aspect-ratio: 2 / 1; /* matches the thumbnails, so nothing important gets cropped */
+  object-fit: cover;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.project h3 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+/* Small "In progress" label next to a project title */
+.status {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
 }
 
 .tools {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding-bottom: 8px;
+  gap: 0.4rem;
+  margin-block: 0.6rem;
 }
 
-.tools span {
-  padding: 5px 10px;
+.tools li {
+  padding: 0.1rem 0.6rem;
+  font-size: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 6px;
-  font-size: 0.75vw;
 }
 
-.sub-card-content {
-  padding-right: 0;
+.project p {
+  font-size: 0.95rem;
 }
 
-.sub-card-content p {
-  line-height: 1.5;
-  font-size: 0.75vw;
-  margin-bottom: 8px;
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: 0.6rem;
 }
 
-.sub-card-content a {
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-block: 0.3rem;
+  font-size: 0.95rem;
   color: #fff;
   text-decoration: none;
-  font-size: 0.75vw;
+  border-bottom: 1px solid transparent;
 }
 
-.sub-card-content a:hover {
-  text-decoration: underline;
+.project-links a:hover {
+  border-bottom-color: #fff;
 }
 
-/* Contact form */
+.project-links img {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.more-soon {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* When the card is narrow (phones, small windows), stack image above text */
+@container (max-width: 34rem) {
+  .project {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* 6. Hobbies gallery
+   -------------------------------------------------------------------------- */
+.section-title {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.gallery img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.gallery .tall {
+  aspect-ratio: 3 / 4;
+}
+
+.gallery .square {
+  aspect-ratio: 1;
+}
+
+.gallery .wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 2;
+}
+
+
+/* 7. Contact form
+   -------------------------------------------------------------------------- */
 form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
-  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
 }
 
 form input,
 form textarea {
-  background: rgba(255, 255, 255, 0.075);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  color: #fff;
-  font-family: inherit;
-  font-size: 1vw;
+  width: 100%;
   padding: 0.75rem 1rem;
+  font: inherit; /* 1rem text also stops iPhones from zooming in on focus */
+  color: #fff;
+  text-shadow: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 10px;
 }
 
 form textarea {
-  min-height: 12rem;
+  min-height: 10rem;
   resize: vertical;
-}
-
-form input::placeholder,
-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
 }
 
 form input:focus,
 form textarea:focus {
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.6);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-color: #fff;
 }
 
-form button {
-  background-color: transparent;
-  border: #fff 1px solid;
-  border-radius: 2vw;
-  padding-top: 1vw;
-  padding-bottom: 1vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  font-family: inherit;
-  margin-left: 0.85rem;
-  margin-top: 0.85rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  color: #fff;
+form .button {
+  justify-self: start;
 }
 
-form button:hover {
-  background-color: #fff;
-  color: #000;
-}
 
-/* Phone CSS */
+/* 8. Phones and small tablets
+   -------------------------------------------------------------------------- */
 @media (max-width: 850px) {
+
+  /* --- Nav: hamburger button + full-screen menu --- */
   nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.25rem;
   }
+
+  .logo,
+  .hamburger {
+    position: relative;
+    z-index: 2; /* stay above the open menu so it can be closed */
+  }
+
   .hamburger {
     display: block;
+    padding: 0.25rem 0.5rem;
     font-size: 1.75rem;
+    line-height: 1;
+    letter-spacing: 0;
     cursor: pointer;
-    z-index: 1001;
   }
-  .nav-toggle {
-    display: none;
+
+  .hamburger::before {
+    content: "\2630"; /* ☰ */
   }
-  nav .links {
+
+  .nav-toggle:checked + .hamburger::before {
+    content: "\2715"; /* ✕ */
+  }
+
+  .nav-toggle:focus-visible + .hamburger {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  .nav-menu {
     display: none;
     position: fixed;
     inset: 0;
-    padding-top: 5rem;
+    z-index: 1;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    gap: 2.5rem;
+    padding: var(--nav-height) 1rem 1rem;
+    background: rgba(8, 16, 32, 0.94);
     backdrop-filter: blur(12px);
-    z-index: 1000;
+    -webkit-backdrop-filter: blur(12px);
   }
 
-  nav .icons {
-    display: none;
-  }
-
-  .nav-toggle:checked ~ .links {
+  .nav-toggle:checked ~ .nav-menu {
     display: flex;
   }
 
-  .nav-toggle:checked ~ .icons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.25rem;
-    background: transparent;
-    backdrop-filter: none;
-    z-index: 1001;
-    padding-top: 0;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    top: calc(20vh + 10rem);
+  body:has(.nav-toggle:checked) {
+    overflow: hidden; /* don't scroll the page behind the open menu */
   }
 
   .links {
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
+    font-size: 1.4rem;
   }
-  /* Restyle cards for mobile instead of hiding them */
-  html, body {
+
+  .icons {
+    gap: 0.75rem;
+  }
+
+  .icons a {
+    padding: 0.6rem; /* ~45px tap target */
+  }
+
+  /* --- Cards: stack and let the page scroll normally --- */
+  main {
     flex-direction: column;
-    overflow-y: auto;
-    align-items: stretch;
+    max-width: 40rem;
+    max-height: none;
+    margin: 0 auto;
+    padding: 1rem;
   }
+
   .title-card,
   .main-card {
-    display: block;
-    width: 90vw !important;
-    height: auto !important;
-    margin: 5rem auto 1.5rem;
-    text-align: center;
+    flex: none;
+    max-width: none;
+    overflow: visible;
   }
 
-  .main-card {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0
-  }
-
-  body:has(.nav-toggle:checked) .title-card,
-  body:has(.nav-toggle:checked) .main-card {
-    display: none;
-  }
-
-  .title-card p {
-    font-size: 2vw !important;
-  }
-
-  .title-card h1 {
-    font-size: 12vw !important;
-    line-height: 13vw !important;
-  }
-
-  .sub-card-content h2 {
-    font-size: 2.25vw;
-  }
-
-  .sub-card-content p {
-    font-size: 1vw;
-  }
-
-  .sub-card-content a {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
-
-  form input,
-  form textarea {
-    font-size: 3vw;
-  }
-
-  .home-page,
-  .portfolio-page,
-  .hobbies-page,
-  .contact-page {
-    min-height: 100dvh;
-    background-attachment: fixed;
-  }
-  html {
-    background-color: #1a1a1a; /* pick a color close to your hero image edges */
+  /* Home page: card sits low so the photo shows above it */
+  .home-page main {
+    margin-top: auto;
+    padding-left: 1rem;
   }
 }
 
-@media (max-width: 1200px) {
-  .tools {
-    display: none;
+@media (max-width: 480px) {
+  /* Photos get a full-width row each so they're big enough to enjoy */
+  .gallery {
+    grid-template-columns: 1fr;
   }
-}
 
-@media (max-height: 750px) {
-  .tools {
-    display: none;
+  .gallery .wide {
+    grid-column: auto;
   }
 }
